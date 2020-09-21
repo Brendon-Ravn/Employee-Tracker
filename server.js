@@ -74,9 +74,8 @@ function init() {
       case "Update employees manager":
         updateEmpManager();
         break;
-      case "I'm finished":
+      default:
         connection.end();
-        break;
     }
   });
 }
