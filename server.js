@@ -34,15 +34,15 @@ function init() {
     ]
   }).then(function(answer) {
     if (answer.lookup === "look up employees") {
-      lookupEmployees();
+      lookupEmp();
   } else if(answer.lookup === "look up department") {
-      lookupDepartment();
+      lookupDep();
   } else if(answer.lookup === "look up role") {
-      lookupRole();
+      lookupRoles();
   } else if(answer.lookup === "look up employees by role") {
-      lookupEmployeesRole();
+      lookupEmpRole();
   } else if(answer.lookup === "look up employees by manager") {
-      lookupEmployeesManager();
+      lookupEmpManager();
   } else if(answer.lookup === "add employees") {
       addEmployees();
   } else if(answer.lookup === "remove employees") {
@@ -59,7 +59,7 @@ function init() {
   });
 }
 
-function lookupEmployees() {
+function lookupEmp() {
   connection.query("SELECT * FROM employees", function(err, res) {
     if (err) throw err;
     console.table(res);
@@ -67,7 +67,7 @@ function lookupEmployees() {
   });
 }
 
-function lookupDepartment() {
+function lookupDep() {
   connection.query("SELECT * FROM departments", function(err, res) {
     if (err) throw err;
     console.table(res);
@@ -75,15 +75,23 @@ function lookupDepartment() {
   });
 }
 
-function lookupRole() {
-
+function lookupRoles() {
+  connection.query("SELECT * FROM roles", function(err, res) {
+    if (err) throw err;
+    console.table(res);
+    init();
+  });
 }
 
-function lookupEmployeesRole() {
-
+function lookupEmpRole() {
+  connection.query("SELECT role_id, first_name, last_name FROM employees ORDER BY role_id", function(err, res) {
+    if (err) throw err;
+    console.table(res);
+    init();
+  });
 }
 
-function lookupEmployeesManager() {
+function lookupEmpManager() {
 
 }
 
