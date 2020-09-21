@@ -29,19 +29,20 @@ function init() {
       "remove employees",
       "update employees role",
       "update employees manager",
-      "look up department budget"
+      "look up department budget",
+      "I'm finished"
     ]
   }).then(function(answer) {
     if (answer.lookup === "look up employees") {
-      viewEmployees();
+      lookupEmployees();
   } else if(answer.lookup === "look up department") {
-      viewDepartment();
+      lookupDepartment();
   } else if(answer.lookup === "look up role") {
-      viewRole();
+      lookupRole();
   } else if(answer.lookup === "look up employees by role") {
-      viewEmployeesRole();
+      lookupEmployeesRole();
   } else if(answer.lookup === "look up employees by manager") {
-      viewEmployeesManager();
+      lookupEmployeesManager();
   } else if(answer.lookup === "add employees") {
       addEmployees();
   } else if(answer.lookup === "remove employees") {
@@ -51,30 +52,38 @@ function init() {
   } else if(answer.lookup === "update employees manager") {
       updateEmployeesManager();
   } else if(answer.lookup === "look up department budget") {
-      viewBudget();
+      lookupBudget();
   } else{
       connection.end();
     }
   });
 }
 
-function viewEmployees() {
+function lookupEmployees() {
+  connection.query("SELECT * FROM employees", function(err, res) {
+    if (err) throw err;
+    console.table(res);
+    init();
+  });
+}
+
+function lookupDepartment() {
+  connection.query("SELECT * FROM departments", function(err, res) {
+    if (err) throw err;
+    console.table(res);
+    init();
+  });
+}
+
+function lookupRole() {
 
 }
 
-function viewDepartment() {
+function lookupEmployeesRole() {
 
 }
 
-function viewRole() {
-
-}
-
-function viewEmployeesRole() {
-
-}
-
-function viewEmployeesManager() {
+function lookupEmployeesManager() {
 
 }
 
@@ -94,6 +103,6 @@ function updateEmployeesManager() {
 
 }
 
-function viewBudget() {
+function lookupBudget() {
 
 }
