@@ -180,28 +180,13 @@ function addEmp() {
     },
     {
         name: "add_role",
-        type: "list",
-        message: "In what role will they be serving?",
-        choices:
-          [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ]
+        type: "input",
+        message: "What is the role id of the position in which they will they be serving?"
       },
       {
         name: "add_manager",
-        type: "list",
-        message: "Who will be their manager?",
-        choices: 
-          [
-            1,
-            2,
-            3
-          ]
+        type: "input",
+        message: "What is the id of their manager?",
        } 
   ]).then(function(answer) 
   {
