@@ -25,7 +25,7 @@ function init() {
       "Look up role",
       "Look up employees by role", 
       "Look up employees by manager",
-      "Add Department",
+      "Add department",
       "Add role",
       "Add employee",
       "Remove department",
@@ -35,49 +35,36 @@ function init() {
       "Update employees manager",
       "I'm finished"
     ]
-  }).then(function(answer) {
-    switch (answer.action) {
-      case "Look up employees":
-        lookupEmp();
-        break;
-      case "Look up department":
-        lookupDep();
-        break;
-      case "Look up role":
-        lookupRoles();
-        break;
-      case "Look up employees by role":
-        lookupEmpRole();
-        break;
-      case "Look up employees by manager":
-        lookupEmpManager();
-        break;
-      case "Add department":
-        addDep();
-        break;
-      case "Add role":
-          addRole();
-          break;
-      case "Add employee":
-        addEmp();
-        break;
-      case "Remove department":
-        removeDep();
-        break;
-      case "Remove role":
-        removeRole();
-        break;
-      case "Remove employee":
-        removeEmp();
-        break;
-      case "Update employees role":
-        updateEmpRole();
-        break;
-      case "Update employees manager":
-        updateEmpManager();
-        break;
-      default:
-        connection.end();
+  })
+  .then(function(answer) {
+    if (answer.lookup === "Look up employees") {
+      lookupEmp();
+    } else if (answer.lookup === "Look up department") {
+      lookupDep();
+    } else if (answer.lookup === "Look up role") {
+      lookupRoles();
+    } else if (answer.lookup === "Look up employees by role") {
+      lookupEmpRole();
+    } else if (answer.lookup === "Look up employees by manager") {
+      lookupEmpManager();
+    } else if (answer.lookup === "Add department") {
+      addDep();
+    } else if (answer.lookup === "Add role") {
+      addRole();
+    } else if (answer.lookup === "Add employee") {
+      addEmp();
+    } else if (answer.lookup === "Remove department") {
+      removeDep();
+    } else if (answer.lookup === "Remove role") {
+      removeRole();
+    } else if (answer.lookup === "Remove employee") {
+      removeEmp();
+    } else if (answer.lookup === "Update employees role") {
+      updateEmpRole();
+    } else if (answer.lookup === "Update employees manager") {
+      updateEmpManager();
+    } else {
+      connection.end();
     }
   });
 }
