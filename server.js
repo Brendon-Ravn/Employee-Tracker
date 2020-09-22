@@ -28,6 +28,8 @@ function init() {
       "Add Department",
       "Add role",
       "Add employee",
+      "Remove department",
+      "Remove role",
       "Remove employee",
       "Update employees role",
       "Update employees manager",
