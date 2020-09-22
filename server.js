@@ -35,8 +35,7 @@ function init() {
       "Update employees manager",
       "I'm finished"
     ]
-  })
-  .then(function(answer) {
+  }).then(function(answer) {
     if (answer.lookup === "Look up employees") {
       lookupEmp();
     } else if (answer.lookup === "Look up department") {
